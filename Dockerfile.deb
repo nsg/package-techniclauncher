@@ -10,12 +10,6 @@ RUN gem install fpm --no-ri --no-rdoc
 RUN mkdir /opt/TechnicLauncher
 WORKDIR /opt/TechnicLauncher
 
-# Download and unpack java
-RUN wget --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/7u67-b01/jdk-7u67-linux-x64.tar.gz -O /tmp/jdk-7u67-linux-x64.tar.gz
-RUN echo "81e3e2df33e13781e5fac5756ed90e67 /tmp/jdk-7u67-linux-x64.tar.gz" > /tmp/java_md5check
-RUN md5sum -c /tmp/java_md5check
-RUN tar xfv /tmp/jdk-7u67-linux-x64.tar.gz
-
 # Download TechnicLauncher
 RUN ln -s /opt/TechnicLauncher/jdk* /opt/TechnicLauncher/java
 RUN mkdir /opt/TechnicLauncher/jar

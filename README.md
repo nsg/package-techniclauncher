@@ -1,9 +1,7 @@
 package-techniclauncher
 =======================
 
-Package TechnicLauncher and Java in a nice deb or rpm.
-
-I can’t host this package because it contains Oracles Java, but you can build it your self inside a nice Docker container to get deb and rpm’s.
+Package TechnicLauncher in a nice deb or rpm.
 
 I build this for my self, but share the Dockerfile's for you to use.
 
@@ -18,10 +16,14 @@ A little warning, I have only tested the deb-package :)
 Just type `make deb` or `make rpm` and you will have a nice rpm/deb in `target/`.
 Type `make` to build both.
 
-## Where is it installed?
+## Installation
 
-Everything is installed to `/opt/TechnicLauncher`
+* Just install the deb or rpm.
+* Missing Oracle Java? Install [my java package](https://github.com/nsg/package-java).
 
 ## Start the the Launcher 
 
-You have a startup script called `techniclauncher`, just do `/opt/TechnicLauncher/techniclauncher` from a terminal or make a shortcut or something.
+* You have a startup script called `techniclauncher`, just do `/opt/TechnicLauncher/techniclauncher` from a terminal.
+* A desktop file is installed, check under Games in your menu.
+
+Note: It will search for java installations in /opt, to set a fixed java version create the symlink `/opt/java` and point it to your prefered java install.
