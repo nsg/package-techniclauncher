@@ -19,3 +19,7 @@ Type `make` to build both.
 ## Where is it installed?
 
 Everything is installed to `/opt/TechnicLauncher`
+
+## Start the the Launcher 
+
+You have a startup script called `techniclauncher`, just do `/opt/TechnicLauncher/techniclauncher` from a terminal or make a shortcut or something.
