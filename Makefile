@@ -2,11 +2,15 @@
 install: deb rpm
 
 deb: prep
-	docker build -t techniclauncher - < Dockerfile.deb
+	cp Dockerfile.deb Dockerfile
+	docker build -t techniclauncher .
+	rm Dockerfile
 	docker run -t -i -v $(CURDIR)/target:/target techniclauncher
 
 rpm: prep
-	docker build -t techniclauncher - < Dockerfile.rpm
+	cp Dockerfile.rpm Dockerfile
+	docker build -t techniclauncher .
+	rm Dockerfile
 	docker run -t -i -v $(CURDIR)/target:/target techniclauncher
 
 prep:

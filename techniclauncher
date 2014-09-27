@@ -1,0 +1,7 @@
+#/bin/sh
+
+JAVA_HOME=/opt/TechnicLauncher/java
+JRE_HOME=$JAVA_HOME
+PATH="/opt/TechnicLauncher/java/bin:$PATH"
+
+java -jar /opt/TechnicLauncher/jar/TechnicLauncher.jar

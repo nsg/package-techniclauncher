@@ -23,6 +23,10 @@ RUN wget http://launcher.technicpack.net/launcher/439/TechnicLauncher.jar -O jar
 RUN echo "0d239fbb7efe976adecb0656d8f2ea0b /opt/TechnicLauncher/jar/TechnicLauncher.jar" > /tmp/technic_md5check
 RUN md5sum -c /tmp/technic_md5check
 
+# Setup startup launcher startup script
+ADD techniclauncher /opt/TechnicLauncher/techniclauncher
+RUN chmod +x /opt/TechnicLauncher/techniclauncher
+
 # Build package
 RUN mkdir -p /target
 WORKDIR /target
