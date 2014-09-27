@@ -26,4 +26,4 @@ RUN md5sum -c /tmp/technic_md5check
 # Build package
 RUN mkdir -p /target
 WORKDIR /target
-RUN fpm -s dir -t deb -v 3.0-439 -n techniclauncher /opt/TechnicLauncher
+CMD fpm -s dir -t deb -v 3.0-439 -n techniclauncher /opt/TechnicLauncher
