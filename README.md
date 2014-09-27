@@ -7,6 +7,8 @@ I can’t host this package because it contains Oracles Java, but you can build 
 
 I build this for my self, but share the Dockerfile's for you to use.
 
+A little warning, I have only tested the deb-package :)
+
 ## What do I need?
 
 `Docker` and `GNU Make`
