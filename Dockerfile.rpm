@@ -1,0 +1,29 @@
+FROM centos:centos7
+MAINTAINER Stefan Berggren
+
+# Install packages
+RUN yum update
+RUN yum -y install wget ruby-devel gcc make tar rpm-build
+RUN gem install fpm --no-ri --no-rdoc
+
+# Prep
+RUN mkdir /opt/TechnicLauncher
+WORKDIR /opt/TechnicLauncher
+
+# Download and unpack java
+RUN wget --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/7u67-b01/jdk-7u67-linux-x64.tar.gz -O /tmp/jdk-7u67-linux-x64.tar.gz
+RUN echo "81e3e2df33e13781e5fac5756ed90e67 /tmp/jdk-7u67-linux-x64.tar.gz" > /tmp/java_md5check
+RUN md5sum -c /tmp/java_md5check
+RUN tar xfv /tmp/jdk-7u67-linux-x64.tar.gz
+
+# Download TechnicLauncher
+RUN ln -s /opt/TechnicLauncher/jdk* /opt/TechnicLauncher/java
+RUN mkdir /opt/TechnicLauncher/jar
+RUN wget http://launcher.technicpack.net/launcher/439/TechnicLauncher.jar -O jar/TechnicLauncher.jar
+RUN echo "0d239fbb7efe976adecb0656d8f2ea0b /opt/TechnicLauncher/jar/TechnicLauncher.jar" > /tmp/technic_md5check
+RUN md5sum -c /tmp/technic_md5check
+
+# Build package
+RUN mkdir -p /target
+WORKDIR /target
+RUN fpm -s dir -t rpm -v 3.0_439 -n techniclauncher /opt/TechnicLauncher
