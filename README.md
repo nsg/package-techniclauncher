@@ -7,4 +7,15 @@ I can’t host this package because it contains Oracles Java, but you can build 
 
 I build this for my self, but share the Dockerfile's for you to use.
 
-If you can’t figure out how to use this, this is probably not for you.
+## What do I need?
+
+`Docker` and `GNU Make`
+
+## How to build the packages?
+
+Just type `make deb` or `make rpm` and you will have a nice rpm/deb in `target/`.
+Type `make` to build both.
+
+## Where is it installed?
+
+Everything is installed to `/opt/TechnicLauncher`
