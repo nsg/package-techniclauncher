@@ -1,17 +1,21 @@
 #/bin/sh
 
 if [ -e /opt/java ]; then
-	JAVA_HOME=/opt/java
+	USE_JAVA=/opt/java
 else
 	for j in /opt/jdk*/bin/java /opt/jre*/bin/java; do
 		if [ -f $j ]; then
-			JAVA_HOME=$(dirname $(dirname $j))
+			USE_JAVA=$(dirname $(dirname $j))
 			break;
 		fi
 	done
 
-	echo "Note: No java installs found in opt"
-	echo "Note: Fallback to system java"
+	if [ -z $USE_JAVA ]; then
+		echo "Note: No java installs found in opt"
+		echo "Note: Fallback to system java"
+	else
+		JAVA_HOME="$USE_JAVA"
+	fi
 fi
 
 if [ -z $JAVA_HOME ]; then
@@ -21,6 +25,6 @@ fi
 
 echo "Using java in $JAVA_HOME"
 JRE_HOME=$JAVA_HOME
-PATH="$JAVA_HOME/java/bin:$PATH"
+PATH="$JAVA_HOME/bin:$PATH"
 
 java -jar /opt/TechnicLauncher/jar/TechnicLauncher.jar
