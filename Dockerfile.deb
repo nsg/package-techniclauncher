@@ -12,8 +12,8 @@ WORKDIR /opt/TechnicLauncher
 
 # Download TechnicLauncher
 RUN mkdir /opt/TechnicLauncher/jar
-RUN wget http://launcher.technicpack.net/launcher/439/TechnicLauncher.jar -O jar/TechnicLauncher.jar
-RUN echo "0d239fbb7efe976adecb0656d8f2ea0b /opt/TechnicLauncher/jar/TechnicLauncher.jar" > /tmp/technic_md5check
+RUN wget http://launcher.technicpack.net/launcher4/301/TechnicLauncher.jar -O jar/TechnicLauncher.jar
+RUN echo "d2d8b47e15bf33d5decdd4bb3b798c0b /opt/TechnicLauncher/jar/TechnicLauncher.jar" > /tmp/technic_md5check
 RUN md5sum -c /tmp/technic_md5check
 
 # Setup startup launcher startup script
