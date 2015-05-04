@@ -24,4 +24,4 @@ ADD TechnicLauncher.desktop /usr/share/applications/TechnicLauncher.desktop
 # Build package
 RUN mkdir -p /target
 WORKDIR /target
-CMD fpm -s dir -t rpm -v 3.0_439 -n techniclauncher /opt/TechnicLauncher /usr/share/applications/TechnicLauncher.desktop
+CMD fpm -s dir -t rpm -v 4.0_301 -n techniclauncher /opt/TechnicLauncher /usr/share/applications/TechnicLauncher.desktop
